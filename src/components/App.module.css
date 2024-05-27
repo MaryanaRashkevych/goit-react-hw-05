@@ -1,0 +1,38 @@
+
+.container {
+ 
+  margin: 10px auto;
+  padding: 10px 20px;
+  
+}
+  .warningText{
+    margin-left: 45%;
+    color: rgb(88, 14, 14);
+  }
+
+  .loadingText{
+    margin-left: 45%;
+    color: rgb(3, 3, 68);
+  }
+  .loaderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; }
+  
+   
+    .title {
+      font-size: 26px;
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .titleCont {
+      display: block;
+      text-align: center;
+      margin: 0 auto;  
+      max-width: 560px;  
+      padding: 0 10px; /* Add padding for better spacing */
+      box-sizing: border-box; }
