@@ -1,0 +1,17 @@
+.castContainer {
+    margin-top: 20px;
+  }
+  
+  .castMember {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  
+  .link {
+    display: block;
+    margin-top: 20px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }

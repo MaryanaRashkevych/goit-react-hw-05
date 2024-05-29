@@ -1,0 +1,22 @@
+.item{
+        
+        color: rgba(65, 65, 61, 0.986);
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+.active{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.list {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 600;
+    gap: 25px;
+  }
