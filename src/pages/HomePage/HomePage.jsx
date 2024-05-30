@@ -1,4 +1,4 @@
-// src/pages/HomePage/HomePage.jsx
+
 import { useState, useEffect } from 'react';
 import { getTrendMovies } from '../../components/ApiService/GetTrendMovies';
 import { Link } from 'react-router-dom';

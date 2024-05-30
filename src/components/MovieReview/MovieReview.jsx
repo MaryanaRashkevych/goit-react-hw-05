@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getMovieReview } from "../ApiService/GetMovieReview";
@@ -29,7 +29,7 @@ export default function MovieReview() {
   }, [movieId]);
 
   if (isLoading) {
-    return;
+    return
     <div>Loading movie reviews...</div>;
   }
   if (isError) {

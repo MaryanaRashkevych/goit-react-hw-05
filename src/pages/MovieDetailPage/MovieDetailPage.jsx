@@ -1,4 +1,4 @@
-// src/pages/MovieDetailPage/MovieDetailPage.jsx
+
 import { useState, useEffect } from "react";
 import { useParams, Outlet, Link } from "react-router-dom";
 import { getMovieDetails } from "../../components/ApiService/GetMovieDetails";

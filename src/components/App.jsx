@@ -1,15 +1,19 @@
 import { Routes, Route, NavLink } from "react-router-dom";
- 
-
+import { lazy, Suspense } from "react"; 
 import css from "./App.module.css";
-import Navigation from "./Navigation/Navigation";
-import HomePage from "../pages/HomePage/HomePage"
-import MoviePage from "../pages/MoviePage/MoviePage"
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
-import MovieDetailPage from "../pages/MovieDetailPage/MovieDetailPage";
+// import Navigation from "./Navigation/Navigation";
+//import HomePage from "../pages/HomePage/HomePage"
+//import MoviePage from "../pages/MoviePage/MoviePage"
+//import ErrorPage from "../pages/ErrorPage/ErrorPage";
+//import MovieDetailPage from "../pages/MovieDetailPage/MovieDetailPage";
 import MovieCast from "./MovieCast/MovieCast";
 import MovieReview from "./MovieReview/MovieReview";
  
+const Navigation =lazy (()=> import("./Navigation/Navigation"));
+const HomePage = lazy(()=> import("../pages/HomePage/HomePage"));
+const MoviePage = lazy(()=> import("../pages/MoviePage/MoviePage"));
+const MovieDetailPage = lazy(()=> import("../pages/MovieDetailPage/MovieDetailPage"));
+const ErrorPage = lazy(()=> import("../pages/ErrorPage/ErrorPage"))
 
 export default function App(){
   return (
@@ -21,6 +25,7 @@ export default function App(){
            </div>
             
 <Navigation/>
+<Suspense fallback={<div>Loading...</div>}>
            <Routes>
 <Route path="/" element={<HomePage/>}/>
 <Route path="/movies" element={<MoviePage/>}/>
@@ -31,6 +36,7 @@ export default function App(){
 <Route path="*" element={<ErrorPage/>}/>
 
            </Routes>
+           </Suspense>
            </div>);
 }
 
