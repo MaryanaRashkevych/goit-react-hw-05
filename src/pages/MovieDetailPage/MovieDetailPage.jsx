@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { useParams, Outlet, Link } from "react-router-dom";
+import { useParams, Outlet, Link, useLocation } from "react-router-dom";
 import { getMovieDetails } from "../../components/ApiService/GetMovieDetails";
 import css from "./MovieDetailPage.module.css";
 
@@ -9,6 +9,7 @@ export default function MovieDetailPage() {
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -42,7 +43,7 @@ export default function MovieDetailPage() {
 
   return (
     <div className={css.container}>
-    <Link to="/"><span className={css.link}>Go back </span></Link>
+    <Link to={location.state?.from || "/"}><span className={css.link}>Go back </span></Link>
       <h1>{movie.title}</h1>
       <p>{movie.overview}</p>
       <img

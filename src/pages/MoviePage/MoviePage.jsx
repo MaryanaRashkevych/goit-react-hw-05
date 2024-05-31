@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getMovieSearched } from "../../components/ApiService/GetMovieSearched";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import css from './MoviePage.module.css';
 import { RotatingLines } from "react-loader-spinner";
 import toast from "react-hot-toast";
@@ -11,6 +11,8 @@ export default function MoviePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isNoResults, setIsNoResults] = useState(false);
+  const location = useLocation();
+
 
   useEffect(() => {
     if (!query) {
@@ -49,7 +51,7 @@ export default function MoviePage() {
     const newQuery = form.query.value.trim();
 
     if (newQuery === "") {
-      toast.error('Please enter a valid search query.');
+      toast.error('Please enter a valid search request.');
       return;
     }
 
@@ -77,7 +79,7 @@ export default function MoviePage() {
       <ul className={css.movieList}>
         {search.map(movie => (
           <li key={movie.id} className={css.movieItem}>
-            <Link to={`/movies/${movie.id}`}>
+            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
               {movie.poster_path ? (
                 <img 
                   src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} 

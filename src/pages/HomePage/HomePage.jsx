@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { getTrendMovies } from '../../components/ApiService/GetTrendMovies';
-import { Link } from 'react-router-dom';
+import { Link,  useLocation } from 'react-router-dom';
 import css from './HomePage.module.css';
 import { RotatingLines } from "react-loader-spinner";
 import LoadMoreBtn from "../../components/LoadMoreBtn/LoadMoreBtn";
@@ -12,6 +12,8 @@ export default function HomePage() {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const location = useLocation();
+ 
 
   useEffect(() => {
     const fetchTrendingMovies = async () => {
@@ -51,7 +53,7 @@ export default function HomePage() {
       <ul className={css.movieList}>
         {movies.map((movie) => (
           <li key={movie.id} className={css.movieItem}>
-            <Link to={`/movies/${movie.id}`}>
+            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
               <img
                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
                 alt={movie.title}
