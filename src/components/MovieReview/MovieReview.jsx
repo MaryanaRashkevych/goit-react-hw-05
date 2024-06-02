@@ -29,9 +29,9 @@ export default function MovieReview() {
   }, [movieId]);
 
   if (isLoading) {
-    return
-    <div>Loading movie reviews...</div>;
+    return <div>Loading movie reviews...</div>;
   }
+
   if (isError) {
     return <div>Error loading movie reviews...</div>;
   }
@@ -39,6 +39,7 @@ export default function MovieReview() {
   if (!reviews) {
     return null;
   }
+
   return (
     <div className={css.reviewsContainer}>
       <h2>Reviews</h2>

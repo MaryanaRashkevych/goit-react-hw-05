@@ -1,8 +1,7 @@
-
 import { useState, useEffect, useRef } from "react";
 import { useParams, Outlet, Link, useLocation } from "react-router-dom";
 import { getMovieDetails } from "../../components/ApiService/GetMovieDetails";
-import css from "./MovieDetailPage.module.css";
+import css from "./MovieDetailsPage.module.css";
 
 export default function MovieDetailPage() {
   const { movieId } = useParams();
@@ -44,7 +43,7 @@ export default function MovieDetailPage() {
 
   return (
     <div className={css.container}>
-    <Link to={backLink}><span className={css.link}>Go back </span></Link>
+      <Link to={backLink.current}><span className={css.link}>Go back</span></Link>
       <h1>{movie.title}</h1>
       <p>{movie.overview}</p>
       <img
