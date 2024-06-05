@@ -18,7 +18,10 @@ export default function MoviePage() {
   useEffect(() => {
     const fetchSearchedMovie = async () => {
       if (!query) {
-        return; 
+        setIsNoResults(true);
+        setSearch([]);
+        toast.error('Oops.. The query is empty. Start your search');
+        return;
       }
 
       try {
@@ -50,6 +53,7 @@ export default function MoviePage() {
     const form = event.currentTarget;
     const newQuery = form.elements.query.value.trim();
 
+
     if (newQuery === "") {
       toast.error('Please enter a valid search request.');
       return;
@@ -74,7 +78,7 @@ export default function MoviePage() {
 
       {isError && <p className={css.warningText}>Error fetching movies. Please try again.</p>}
 
-      {isNoResults && <p className={css.warningText}>No results found.</p>}
+      {isNoResults && !isError && <p className={css.warningText}>No results found.</p>}
 
       <MovieList movies={search} />
     </div>
